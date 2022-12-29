@@ -30,7 +30,7 @@ export default function appReducer(state, action) {
       })();
     case LOCK_MODULE:
       return (function () {
-        const id = action.payload
+        const id = action.payload;
         const newModules = state.experimentModules.slice();
         const idx = newModules.findIndex((o) => o.id === id);
         newModules[idx] = {
@@ -56,27 +56,29 @@ export default function appReducer(state, action) {
           experimentModules: newModules,
         };
       })();
-      case SELECT_ITERATION:
-        return (function () {
-          const mid = action.payload.moduleID
-          const iid = action.payload.iterationID
-          const isSelected = action.payload.selection
-          const newModules = state.experimentModules.slice();
-          const idx = newModules.findIndex((o) => o.id === mid);
-          const newIterations = newModules[idx]?.iterations
-          const iterationIdx = newIterations.findIndex(o => o.id === iid)
-          newIterations[iterationIdx] = { ...newIterations[iterationIdx], isSelected }
-          newModules[idx] = {
-            ...newModules[idx],
-            iterations: newIterations,
-          };
-          return {
-            ...state,
-            experimentModules: newModules,
-          };
-        })()
+    case SELECT_ITERATION:
+      return (function () {
+        const mid = action.payload.moduleID;
+        const iid = action.payload.iterationID;
+        const isSelected = action.payload.selection;
+        const newModules = state.experimentModules.slice();
+        const idx = newModules.findIndex((o) => o.id === mid);
+        const newIterations = newModules[idx]?.iterations;
+        const iterationIdx = newIterations.findIndex((o) => o.id === iid);
+        newIterations[iterationIdx] = {
+          ...newIterations[iterationIdx],
+          isSelected,
+        };
+        newModules[idx] = {
+          ...newModules[idx],
+          iterations: newIterations,
+        };
+        return {
+          ...state,
+          experimentModules: newModules,
+        };
+      })();
     default:
       return state;
   }
 }
-

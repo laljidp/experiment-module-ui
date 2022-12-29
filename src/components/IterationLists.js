@@ -23,9 +23,8 @@ const IterationLists = (props) => {
       {data.map((iteration, index) => (
         <div
           key={iteration.id}
-          className={`iteration-section d-flex align-items-center cursor-pointer ${getClassName(
-            index
-          )}`}
+          className={`iteration-section d-flex align-items-center cursor-pointer 
+          ${getClassName(index)}`}
           onClick={() => handleSelect(iteration.id, !iteration.isSelected)}
         >
           <div style={{ minWidth: "40px" }}>{`EM-${index + 1}`}</div>
