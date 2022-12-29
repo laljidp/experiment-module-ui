@@ -46,7 +46,7 @@ const EModule = (props) => {
   return (
     <div className="d-block module-section">
       <div
-        className="d-flex justify-content-between align-items-center p-3 cursor-pointer"
+        className="module-head"
         onClick={!module.isLocked ? toggleExpand : () => {}}
       >
         <h5
@@ -60,7 +60,7 @@ const EModule = (props) => {
         <i>{renderIcon()}</i>
       </div>
       {expand && (
-        <div className="mt-2">
+        <div className="module-body mt-2">
           <IterationLists
             data={module.iterations}
             toggleExpand={toggleExpand}

@@ -2,9 +2,11 @@ import React from "react";
 import { render, renderHook } from "@testing-library/react";
 import GlobalProvider, { useGlobalContext, GlobalContext } from "./GlobalState";
 
-const state = { exprimentModules: [
-    { id: 'xyz', title: 'Experiment Module', isLocked: false }
-] };
+const state = {
+  exprimentModules: [
+    { id: "xyz", title: "Experiment Module", isLocked: false },
+  ],
+};
 const dispatch = jest.fn();
 
 const wrapper = ({ children }) => (

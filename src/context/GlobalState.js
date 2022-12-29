@@ -22,7 +22,7 @@ const initialState = {
 
 export const GlobalContext = createContext(initialState);
 
-export const useGlobalContext = () => useContext(GlobalContext)
+export const useGlobalContext = () => useContext(GlobalContext);
 
 const GlobalProvider = ({ children }) => {
   const [state, dispatch] = useReducer(appReducer, initialState);
@@ -62,11 +62,11 @@ const GlobalProvider = ({ children }) => {
     });
   }
 
-  function selectIteration({moduleID, iterationID, selection}) {
+  function selectIteration({ moduleID, iterationID, selection }) {
     dispatch({
       type: SELECT_ITERATION,
-      payload: { moduleID, iterationID, selection }
-    })
+      payload: { moduleID, iterationID, selection },
+    });
   }
 
   return (
@@ -78,7 +78,7 @@ const GlobalProvider = ({ children }) => {
         addModule,
         lockModule,
         resetModule,
-        selectIteration
+        selectIteration,
       }}
     >
       {children}
@@ -86,4 +86,4 @@ const GlobalProvider = ({ children }) => {
   );
 };
 
-export default GlobalProvider
+export default GlobalProvider;
