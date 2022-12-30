@@ -6,7 +6,7 @@ function App() {
   return (
     <GlobalProvider>
       <div className="App">
-        <div className="container-sm w-75 vh-100">
+        <div className="container module-container">
           <EModulelists />
         </div>
       </div>
